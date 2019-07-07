@@ -1,5 +1,10 @@
 <template>
   <div>
+    <!-- 搜索 -->
+    <router-link tag="div" class="search-box" to="/search">
+      <i class="iconfont icon-search">&#xe658;</i>
+      <span class="box">大家都在搜 “{{placeholder}}”</span>
+    </router-link>
     <!-- tab -->
     <div class="home">
       <router-link tag="div" class="tab-item" to="/home/follow">
@@ -15,25 +20,28 @@
     <keep-alive>
       <router-view></router-view>      
     </keep-alive>
-    <!-- 搜索 -->
-    <router-link tag="div" class="search-box" to="/search">
-      <i class="iconfont icon-search">&#xe658;</i>
-      <span class="box">大家都在搜 “{{placeholder}}”</span>
-    </router-link>
+    
+    <!-- 文章内容 -->
+
+    <!-- 底部tab -->
+    <v-tab></v-tab>
   </div>
 </template>
 
 <script>
+import Tab from '../tab'
 export default {
   name: 'Home',
   data () {
     return {
-      placeholder: '11111'
+      placeholder: '11111',
     }
   },
+  components: {
+    'v-tab': Tab 
+  },
   methods: {
-
-  }
+  },
 }
 </script>
 
@@ -45,6 +53,7 @@ export default {
   height: 40px;
   line-height: 40px;
   font-size: 16px;
+  background-color: #fff;
 }
 .tab-item{
   flex: 1;

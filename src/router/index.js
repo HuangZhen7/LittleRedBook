@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/pages/home'
+import News from '@/components/pages/news'
+import User from '@/components/pages/user'
 import follow from '@/components/follow'
 import find from '@/components/find'
 import nearby from '@/components/nearby'
@@ -52,6 +54,16 @@ export default new Router({
       path: '/store',
       name: 'store',
       component: Store
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: News
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: User
     },
   ]
 })

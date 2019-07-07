@@ -14,12 +14,17 @@
     <router-view></router-view>
     <!-- 侧边sidebar -->
     <v-sidebar></v-sidebar>
+    <!-- 底部tab -->
+    <v-tab></v-tab>    
+
   </div>
 </template>
 
 <script>
 import storeHeader from '../storeHeader'
 import sidebar from '../sidebar'
+import Tab from '../tab'
+
 export default {
   name: 'store',
   data () {
@@ -29,7 +34,8 @@ export default {
   },
   components: {
     'v-store-header': storeHeader ,
-    'v-sidebar': sidebar
+    'v-sidebar': sidebar,
+    'v-tab': Tab 
   },
 }
 </script>
