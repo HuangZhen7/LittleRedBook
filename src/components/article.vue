@@ -9,7 +9,7 @@
         <span class="writer">{{item.writer}}</span>
         <div class="like" @click="setLike(index)">
           <i v-show="!item.selected" class="iconfont">&#xe607;</i>
-          <i v-show="item.selected" class="iconfont" style="color: red">&#xe604;</i>{{item.like}}            
+          <i v-show="item.selected" class="iconfont" style="color: red">&#xe604;</i>{{item.like}}      
         </div>
       </div>
     </div>
@@ -21,6 +21,7 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
+  name: 'article',
   props: {
     id: {
       type: Number,
@@ -38,13 +39,29 @@ export default {
       this.notes[index].selected = !this.notes[index].selected 
       if(this.notes[index].selected) {
         this.notes[index].like = +this.notes[index].like + 1
+        console.log(this.notes[index].like)
+        console.log(this.notes)
       } else {
         this.notes[index].like = +this.notes[index].like - 1
+        console.log(this.notes[index].like)
+        console.log(this.notes)
       }
     },
-    initScroll(){ //实例化       
-    let wrapper= this.$refs.wrapper   //给需要区域滚动的内容的父盒子添加ref属性
-    this.wrapper= new BScroll(wrapper, {click: true})   //better-scroll 默认会阻止浏览器的原生 click 事件,需要配置一下click属性
+    // initScroll(){ //实例化       
+    // let wrapper= this.$refs.wrapper   //给需要区域滚动的内容的父盒子添加ref属性
+    // let scroll= new BScroll(wrapper, {click: true})   //better-scroll 默认会阻止浏览器的原生 click 事件,需要配置一下click属性
+    // }
+    initScroll() {
+      this.$nextTick(()=>{
+        if(!this.Scroll) {
+          this.Scroll = new BScroll(this.$refs.wrapper,{
+            click: true,      // 配置允许点击事件
+            scrollY: true     // 开启纵向滚动
+          })
+        } else {
+          this.Scroll.refresh()    // 重新计算 better-scroll，当 DOM 结构发生变化的时确保滚动效果正常
+        }
+      })
     }
   },
   created() {
@@ -52,23 +69,30 @@ export default {
       .then(res => {
         console.log(res)
         if (res.status === 200) {
-          this.notes = res.data.data[this.id].notes
-          // console.log(this.notes)
+           this.notes = res.data.data[this.id].notes
         }
       })
-    this.$nextTick(() => {
-      this.initScroll()
-    })
+    // this.$nextTick(() => {
+    //  this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+    // })
+    this.initScroll()
   },
 }
 </script>
 
 <style scoped>
+.box {
+    /* height: 80vh; */
+    /* height: 100%; */
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
 .article{
   width: 100%;
   background-color: #f4f9fa;
   overflow: hidden;
-  position: fixed;
+  /* position: fixed; */
 }
 .content{
   background-color: #fff;
