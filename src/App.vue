@@ -15,11 +15,11 @@ export default {
 <style>
 @font-face {
   font-family: 'iconfont';  /* project id 1223227 */
-  src: url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.eot');
-  src: url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1223227_bemxuq7aqrf.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.eot');
+  src: url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1223227_oc99utbhgpb.svg#iconfont') format('svg');
 }
 </style>

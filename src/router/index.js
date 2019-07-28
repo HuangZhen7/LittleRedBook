@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import Login from '@/components/pages/Login'
 import Home from '@/components/pages/home'
 import News from '@/components/pages/news'
 import User from '@/components/pages/user'
@@ -22,16 +23,25 @@ export default new Router({
     //   }
     // },
     {
+      path: '/login',//登录页
+      name: 'Login',
+      component: Login
+    },
+    {
       path: '/',
       name: 'Home',
       component: Home,
-      redirect: '/home/find',
+      meta: {
+        type: 'login'
+        // requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
+      // redirect: '/home/find',
     },
     {
       path: '/home',
       name: 'Home',
       component: Home,
-      redirect: '/home/find',
+      // redirect: '/home/find',
       children: [
         {
           path: 'find',
