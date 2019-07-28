@@ -11,7 +11,7 @@
       </div>
       <!-- 登录  -->
       <div class="login-btn">
-        <div class="btn-item wechat">
+        <div class="btn-item wechat" @click="login">
           <i class="iconfont" style="color: green;margin-right: 4px;">&#xe73c;</i>微信登录
         </div>
         <div class="btn-item phone">
@@ -26,6 +26,12 @@
           </div>
         </div>
       </div>
+      <!-- 输入登录信息弹框 -->
+      <div class="mask" v-show="showSidebar"></div>
+      <div class="userInfo"  v-show="showSidebar">
+        <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName">
+        <input type="text"  class="qxs-ic_password qxs-icon"  placeholder="密码" v-model="password">
+      </div>
   </div>
 </template>
 
@@ -33,8 +39,16 @@
 export default {
   data() {
     return {
-      
+      showSidebar: false,
+      userName: '',
+      password: '',
     }
+  },
+   methods: {
+     login() {
+       this.showSidebar = !this.showSidebar
+       console.log(this.showSidebar)
+     }
   }
 }
 </script>
@@ -121,5 +135,29 @@ export default {
   width: 120px;
   color: #ffffff;
   /* text-align: center; */
+}
+.mask{
+  background-color: #B3B3B3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+  filter: alpha(opacity=80);
+}
+.userInfo{
+  background-color: #FFFFFF;
+  z-index: 11;
+  width: 200px;
+  height: 200px;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  margin:auto;
 }
 </style>

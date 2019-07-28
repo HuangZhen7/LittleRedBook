@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Article from './article'
+import Articles from './article'
 export default {
   components: {
-    'v-article': Article
+    'v-article': Articles
   },
   data() {
     return {

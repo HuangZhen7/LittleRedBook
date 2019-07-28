@@ -21,7 +21,7 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
-  name: 'article',
+  name: 'articles',
   props: {
     id: {
       type: Number,
@@ -40,11 +40,11 @@ export default {
       if(this.notes[index].selected) {
         this.notes[index].like = +this.notes[index].like + 1
         console.log(this.notes[index].like)
-        console.log(this.notes)
+        // console.log(this.notes)
       } else {
         this.notes[index].like = +this.notes[index].like - 1
         console.log(this.notes[index].like)
-        console.log(this.notes)
+        // console.log(this.notes)
       }
     },
     // initScroll(){ //实例化       
